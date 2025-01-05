@@ -1,5 +1,3 @@
-// script.js
-
 const player = document.getElementById("player");
 const shield = document.getElementById("shield");
 const obstacles = Array.from(document.querySelectorAll(".obstacle"));
@@ -15,19 +13,19 @@ const obstacleData = [
 
 // Move player with arrow keys
 document.addEventListener("keydown", (e) => {
-  const left = parseInt(player.style.left || "50px");
-  const bottom = parseInt(player.style.bottom || "100px");
-
-  if (e.key === "ArrowRight" && left < window.innerWidth - 50) {
-    player.style.left = `${left + 20}px`;
-  } else if (e.key === "ArrowLeft" && left > 0) {
-    player.style.left = `${left - 20}px`;
-  } else if (e.key === "ArrowUp" && bottom < window.innerHeight - 50) {
-    player.style.bottom = `${bottom + 20}px`;
-  } else if (e.key === "ArrowDown" && bottom > 0) {
-    player.style.bottom = `${bottom - 20}px`;
-  }
-});
+    const left = parseInt(player.style.left || "50px");
+    const bottom = parseInt(player.style.bottom || "100px");
+  
+    if (e.key === "ArrowRight" && left < window.innerWidth - 50) {
+      player.style.left = `${left + 20}px`;
+    } else if (e.key === "ArrowLeft" && left > 0) {
+      player.style.left = `${left - 20}px`;
+    } else if (e.key === "ArrowUp" && bottom < window.innerHeight - 50) {
+      player.style.bottom = `${bottom + 20}px`;
+    } else if (e.key === "ArrowDown" && bottom > 0) {
+      player.style.bottom = `${bottom - 20}px`;
+    }
+  });
 
 // Move obstacles
 function moveObstacles() {
@@ -57,7 +55,7 @@ moveObstacles();
 function shootProjectile(obstacle) {
   const projectile = document.createElement("div");
   projectile.className = "projectile";
-  document.getElementById("game-container").appendChild(projectile);
+  document.body.appendChild(projectile);
 
   const rect = obstacle.getBoundingClientRect();
   projectile.style.left = `${rect.left + rect.width / 2}px`;
